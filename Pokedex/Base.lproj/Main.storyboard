@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pocket.otf">
+            <string>PocketMonk</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
@@ -22,48 +27,58 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBu-nf-6bY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dds-SC-R41">
+                                        <rect key="frame" x="143" y="24" width="89.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="PocketMonk" family="Pocket Monk" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.2901960784" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="1e2-v8-PIe"/>
+                                    <constraint firstAttribute="height" constant="60" id="1e2-v8-PIe"/>
+                                    <constraint firstItem="dds-SC-R41" firstAttribute="centerX" secondItem="CBu-nf-6bY" secondAttribute="centerX" id="4C5-b5-vmr"/>
+                                    <constraint firstItem="dds-SC-R41" firstAttribute="centerY" secondItem="CBu-nf-6bY" secondAttribute="centerY" constant="8" id="d0H-Q8-Smy"/>
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" placeholder="Search Pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="RQu-q3-I4b">
-                                <rect key="frame" x="0.0" y="80" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="HvC-tD-YVZ"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="cjU-q8-Ki4">
-                                <rect key="frame" x="0.0" y="124" width="375" height="543"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cod-e5-653">
-                                <rect key="frame" x="20" y="144" width="335" height="523"/>
+                                <rect key="frame" x="20" y="124" width="335" height="543"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iNT-hf-6bK">
-                                    <size key="itemSize" width="80" height="80"/>
+                                    <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokeCell" id="WNR-yV-GJd" customClass="PokeCell" customModule="Pokedex" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="25" translatesAutoresizingMaskIntoConstraints="NO" id="4L6-Kf-QDC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="60" id="UOJ-Yy-O7H"/>
+                                                        <constraint firstAttribute="height" constant="80" id="UOJ-Yy-O7H"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pikachu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkX-Wb-8ym">
-                                                    <rect key="frame" x="0.0" y="60" width="80" height="20"/>
+                                                    <rect key="frame" x="0.0" y="80" width="100" height="20"/>
                                                     <color key="backgroundColor" red="0.80000000000000004" green="0.2901960784" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
