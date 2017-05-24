@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B50F93E71ED5A4A20092E736 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F93E61ED5A4A20092E736 /* csv.swift */; };
 		B50F93EA1ED62FD50092E736 /* Pocket.otf in Resources */ = {isa = PBXBuildFile; fileRef = B50F93E91ED62FD50092E736 /* Pocket.otf */; };
+		B50F93EC1ED631CB0092E736 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B50F93EB1ED631CB0092E736 /* music.mp3 */; };
 		B57237071ED4D5A40068EB2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57237061ED4D5A40068EB2F /* AppDelegate.swift */; };
 		B57237091ED4D5A40068EB2F /* ＭainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57237081ED4D5A40068EB2F /* ＭainVC.swift */; };
 		B572370C1ED4D5A40068EB2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B572370A1ED4D5A40068EB2F /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		B50F93E61ED5A4A20092E736 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 		B50F93E91ED62FD50092E736 /* Pocket.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pocket.otf; sourceTree = "<group>"; };
+		B50F93EB1ED631CB0092E736 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		B57237031ED4D5A40068EB2F /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B57237061ED4D5A40068EB2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B57237081ED4D5A40068EB2F /* ＭainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ＭainVC.swift"; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				B50F93E91ED62FD50092E736 /* Pocket.otf */,
 				B57237391ED4DB170068EB2F /* pokemon.csv */,
 				B50F93E61ED5A4A20092E736 /* csv.swift */,
+				B50F93EB1ED631CB0092E736 /* music.mp3 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				B57237111ED4D5A40068EB2F /* LaunchScreen.storyboard in Resources */,
 				B572370E1ED4D5A40068EB2F /* Assets.xcassets in Resources */,
+				B50F93EC1ED631CB0092E736 /* music.mp3 in Resources */,
 				B572373A1ED4DB170068EB2F /* pokemon.csv in Resources */,
 				B50F93EA1ED62FD50092E736 /* Pocket.otf in Resources */,
 				B572370C1ED4D5A40068EB2F /* Main.storyboard in Resources */,

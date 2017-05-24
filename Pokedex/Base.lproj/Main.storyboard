@@ -35,12 +35,25 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m83-j7-ja0">
+                                        <rect key="frame" x="332" y="24.5" width="27" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="27" id="6Zr-DE-Cze"/>
+                                            <constraint firstAttribute="height" constant="27" id="911-e7-FWN"/>
+                                        </constraints>
+                                        <state key="normal" image="music"/>
+                                        <connections>
+                                            <action selector="musicBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MXj-P8-fqx"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.2901960784" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1e2-v8-PIe"/>
                                     <constraint firstItem="dds-SC-R41" firstAttribute="centerX" secondItem="CBu-nf-6bY" secondAttribute="centerX" id="4C5-b5-vmr"/>
                                     <constraint firstItem="dds-SC-R41" firstAttribute="centerY" secondItem="CBu-nf-6bY" secondAttribute="centerY" constant="8" id="d0H-Q8-Smy"/>
+                                    <constraint firstItem="m83-j7-ja0" firstAttribute="centerY" secondItem="CBu-nf-6bY" secondAttribute="centerY" constant="8" id="tMx-Jc-DWB"/>
+                                    <constraint firstAttribute="trailing" secondItem="m83-j7-ja0" secondAttribute="trailing" constant="16" id="xfd-g1-jgh"/>
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" placeholder="Search Pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="RQu-q3-I4b">
@@ -127,6 +140,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="cod-e5-653" id="Mxy-LH-ACy"/>
+                        <outlet property="musicBtn" destination="m83-j7-ja0" id="FyH-jv-Nee"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -137,5 +151,6 @@
     <resources>
         <image name="25" width="120" height="120"/>
         <image name="bg" width="1920" height="1200"/>
+        <image name="music" width="100" height="100"/>
     </resources>
 </document>

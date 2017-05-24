@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     
     @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var musicBtn: UIButton!
     
     var pokemons = [Pokemon]()
+    var musicPlayer: AVAudioPlayer!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,33 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         collection.dataSource = self
         
         parsePokemonCSV()
+        initMusic()
+        
+    }
+    
+    func initMusic() {
+        
+        let musicPath = Bundle.main.path(forResource: "music", ofType: "mp3")!
+        let musicURL = URL(fileURLWithPath: musicPath)
+        
+        do {
+            try musicPlayer = AVAudioPlayer(contentsOf: musicURL)
+            musicPlayer.prepareToPlay()
+            musicPlayer.play()
+            
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
+    @IBAction func musicBtnPressed(_ sender: UIButton) {
+        if musicPlayer.isPlaying {
+            musicPlayer.stop()
+            musicBtn.alpha = 0.7
+        } else {
+            musicPlayer.play()
+            musicBtn.alpha = 1
+        }
     }
     
     func parsePokemonCSV() {
