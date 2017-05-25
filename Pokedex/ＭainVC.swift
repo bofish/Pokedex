@@ -64,7 +64,27 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        var poke: Pokemon!
         
+        if inSearchMode {
+            poke = filterPokemons[indexPath.row]
+        
+        } else {
+            poke = pokemons[indexPath.row]
+        }
+       
+        performSegue(withIdentifier: "pokemonDetailVC", sender: poke)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destination = segue.destination as? pokemonDetailVC {
+            
+            if let poke = sender as? Pokemon {
+                destination.pokeDetail = poke
+            }
+            
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
