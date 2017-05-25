@@ -9,13 +9,16 @@
 import UIKit
 import AVFoundation
 
-class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var musicBtn: UIButton!
     
     var pokemons = [Pokemon]()
+    var filterPokemons = [Pokemon]()
+    var inSearchMode = false
     var musicPlayer: AVAudioPlayer!
     
     
@@ -24,12 +27,63 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         collection.delegate = self
         collection.dataSource = self
+        searchBar.delegate = self
+        
+        searchBar.returnKeyType = UIReturnKeyType.done
         
         parsePokemonCSV()
         initMusic()
         
     }
     
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
+        if let cell = collection.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell {
+            
+            if inSearchMode {
+                
+                let filterPoke = filterPokemons[indexPath.row]
+                cell.configureUI(pokemon: filterPoke)
+            } else {
+                
+                let pokemon = pokemons[indexPath.row]
+                cell.configureUI(pokemon: pokemon)
+            }
+            
+            return cell
+        } else {
+            
+            return UICollectionViewCell()
+        }
+        
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if inSearchMode {
+            
+            return filterPokemons.count
+        } else {
+            
+            return pokemons.count
+        }
+        
+    }
+
     func initMusic() {
         
         let musicPath = Bundle.main.path(forResource: "music", ofType: "mp3")!
@@ -77,41 +131,27 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             print(err.debugDescription)
         }
     }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
     
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        
-        if let cell = collection.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell {
+        if searchBar.text == nil || searchBar.text == "" {
             
-//            let pokemon = Pokemon(pokeName: pokemons[indexPath.row].pokeName, pokeID: pokemons[indexPath.row].pokeID)
-            let pokemon = pokemons[indexPath.row]
+            inSearchMode = false
+            collection.reloadData()
+            view.endEditing(true)
             
-            cell.configureUI(pokemon: pokemon)
-            
-            return cell
         } else {
             
-            return UICollectionViewCell()
+            inSearchMode = true
+            
+            let filter = searchBar.text!
+            filterPokemons = pokemons.filter({ $0.pokeName.range(of: filter) != nil})
+            collection.reloadData()
         }
-        
-        
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return pokemons.count
-    }
-
 }
 
