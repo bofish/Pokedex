@@ -111,6 +111,7 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         do {
             try musicPlayer = AVAudioPlayer(contentsOf: musicURL)
+            musicPlayer.numberOfLoops = -1
             musicPlayer.prepareToPlay()
             musicPlayer.play()
             
